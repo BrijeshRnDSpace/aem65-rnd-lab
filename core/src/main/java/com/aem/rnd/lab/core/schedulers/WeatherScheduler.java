@@ -95,9 +95,9 @@ public class WeatherScheduler implements Runnable {
                 }
             }
         } catch (LoginException e) {
-            log.error("LoginException in EuroWingWeatherScheduler: ", e);
+            log.error("LoginException in WeatherScheduler: ", e);
         } catch (Exception e) {
-            log.error("Error in EuroWingWeatherScheduler: ", e);
+            log.error("Error in WeatherScheduler: ", e);
         }
     }
 

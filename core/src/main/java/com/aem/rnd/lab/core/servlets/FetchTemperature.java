@@ -31,7 +31,7 @@ public class FetchTemperature extends SlingSafeMethodsServlet {
 
     static final String CITY = "city";
     private static final String APPLICATION_JSON = "application/json";
-    private static final String CONTENT_EURO_WING = "/content/rnd_lab/";
+    private static final String CONTENT_ROOT = "/content/rnd_lab/";
 
     @Override
     protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) throws ServletException, IOException {
@@ -41,7 +41,7 @@ public class FetchTemperature extends SlingSafeMethodsServlet {
 
         String city = request.getParameter(CITY) != null ? request.getParameter(CITY) : "Munich";
         log.info("City {} from query parameter", city);
-        Resource pageResource = request.getResourceResolver().getResource(CONTENT_EURO_WING + city.toLowerCase());
+        Resource pageResource = request.getResourceResolver().getResource(CONTENT_ROOT + city.toLowerCase());
 
         PageManager pageManager = request.getResourceResolver().adaptTo(PageManager.class);
         if (pageResource != null) {
