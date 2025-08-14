@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/libs/settings/wcm/designs/default"
+        cq:lastModified="{Date}2025-08-14T13:13:44.541+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/libs/cq/workflow/templates/model"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Rnd Email Notifications"
+        sling:resourceType="cq/workflow/components/pages/model">
+        <flow
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <initiatorparticipant
+                jcr:created="{Date}2016-12-14T08:11:19.175-05:00"
+                jcr:createdBy="admin"
+                jcr:description="Description of step 1"
+                jcr:lastModified="{Date}2025-08-14T12:26:24.064+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Workflow triggered for Email Notification"
+                sling:resourceType="cq/workflow/components/workflow/initiatorparticipantchooser">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    DYNAMIC_PARTICIPANT="/libs/workflow/scripts/initiator-participant-chooser.ecma"
+                    PROCESS_AUTO_ADVANCE="true"/>
+            </initiatorparticipant>
+<!--            <participant
+                jcr:created="{Date}2025-08-14T12:24:12.956+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2025-08-14T12:24:42.280+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Participant"
+                sling:resourceType="cq/workflow/components/model/participant">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    DO_NOTIFY="true"
+                    PARTICIPANT="administrators"/>
+            </participant>-->
+            <process
+                jcr:created="{Date}2025-08-14T13:12:57.617+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2025-08-14T13:13:44.532+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Process"
+                sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.aem.rnd.lab.core.workflow.SendEmailWorkflowProcess"
+                    PROCESS_ARGS="participantEmail=reviewers@example.com"/>
+            </process>
+        </flow>
+    </jcr:content>
+</jcr:root>
